@@ -2,8 +2,7 @@ const pool = require("../config/database");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
-
-module.exports.login = async (req, res) => {
+export async function loginUser(req, res) {
   const client = await pool.connect();
 
   try {
@@ -12,9 +11,9 @@ module.exports.login = async (req, res) => {
   } finally {
     client.release();
   }
-};
+}
 
-module.exports.register = async (req, res) => {
+export async function registerNewUser(req, res) {
   const client = await pool.connect();
 
   try {
@@ -23,9 +22,9 @@ module.exports.register = async (req, res) => {
   } finally {
     client.release();
   }
-};
+}
 
-module.exports.logout = async (req, res) => {
+export async function logoutUser(req, res) {
   const client = await pool.connect();
 
   try {
@@ -34,4 +33,4 @@ module.exports.logout = async (req, res) => {
   } finally {
     client.release();
   }
-};
+}
