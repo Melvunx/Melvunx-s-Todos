@@ -21,7 +21,7 @@ app.get("/test", async (req, res) => {
   const client = await pool.connect();
 
   try {
-    const result = await client.query("SELECT * FROM  account");
+    const result = await client.query("SELECT * FROM account");
     console.log(result.rows);
 
     res.json(result.rows);
