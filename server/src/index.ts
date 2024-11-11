@@ -1,9 +1,7 @@
+import express from "express";
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-import express from "express";
-import authRoutes from "./routes/auth.routes";
-
 const app = express();
 require("dotenv").config();
 
@@ -13,9 +11,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 //Routes
+import authRoutes from "./routes/auth.routes";
+import notesRoutes from "./routes/notes.routes";
+import todoRoutes from "./routes/todo.routes";
+
 app.use("/api/auth", authRoutes);
-// app.use("/api/todo", todoRoutes);
-// app.use("/api/notes", notesRoutes);
+app.use("/api/todo", todoRoutes);
+app.use("/api/notes", notesRoutes);
 
 const { SERVER_PORT } = process.env;
 
