@@ -1,6 +1,5 @@
-import { Router } from "express";
-const cookieParser = require("cookie-parser");
-const jwt = require("jsonwebtoken");
+import cookieParser from "cookie-parser";
+import { Request, Response, Router } from "express";
 const router = Router();
 router.use(cookieParser());
 
@@ -10,12 +9,7 @@ import {
   registerNewUser,
 } from "../controller/auth.controller";
 
-// const authMiddleware = (req, res, next) => {
-//   const token = req.cookies.jwt;
-
-//   if (!token) {
-//   }
-// };
+const authMiddleware = (req: Request, res: Response) => {};
 
 router.use("/login", loginUser);
 router.use("/register", registerNewUser);

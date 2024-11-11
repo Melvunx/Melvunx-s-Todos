@@ -3,8 +3,6 @@ import { LoginUser } from "../models/Login.models";
 import { User } from "../models/User.models";
 
 const pool = require("../config/database");
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
 
 export async function loginUser(
   req: Request<{}, {}, LoginUser>,
